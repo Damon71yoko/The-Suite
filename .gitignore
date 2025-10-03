@@ -1,0 +1,6 @@
+.env
+firebase-creds.json
+*.pyc
+__pycache__/
+.idea/
+.venv/
