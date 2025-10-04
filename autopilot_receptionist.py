@@ -1,3 +1,4 @@
+import json
 #!/usr/bin/env python3
 """
 Orla AI Receptionist - Autopilot Customer Service System
@@ -22,8 +23,10 @@ stripe.api_key = os.getenv ( 'STRIPE_SECRET_KEY' )
 
 # Initialize Firebase
 if not firebase_admin._apps:
-    cred = credentials.Certificate ( os.getenv ( 'FIREBASE_CREDENTIALS_PATH' ) )
-    firebase_admin.initialize_app ( cred )
+if os.getenv("FIREBASE_CREDENTIALS"):
+    cred = credentials.Certificate(json.loads(os.getenv("FIREBASE_CREDENTIALS")))
+else:
+    cred = credentials.Certificate(os.getenv("FIREBASE_CREDENTIALS_PATH"))    firebase_admin.initialize_app ( cred )
 db = firestore.client ()
 
 # Initialize Flask
