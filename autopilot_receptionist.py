@@ -25,7 +25,7 @@ stripe.api_key = os.getenv ( 'STRIPE_SECRET_KEY' )
 if os.getenv("FIREBASE_CREDENTIALS"):
     cred = credentials.Certificate(json.loads(os.getenv("FIREBASE_CREDENTIALS")))
 else:
-    cred = credentials.Certificate(os.getenv("FIREBASE_CREDENTIALS_PATH")
+    cred = credentials.Certificate(os.getenv("FIREBASE_CREDENTIALS_PATH")))
 db = firestore.client ()
 
 # Initialize Flask
